@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog X Sphere</title>
+    <!--JQuery cdn-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!--OwlCarousel cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--AOS library-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />  
+    
+    <!--FontAwsome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!--Linking css file-->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!----------------------Navigation---------------->
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="#" class="text-gray">Blog X Sphere</a>
+            </div>
+            <div class="toggle-collapse">
+                <div class="toggle-icon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+            <div>    
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="create.html">Create</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="blogs.html">Blogs</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="login.html">Login</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!----------xx----------Navigation--------xx------>
+    
+    <!-------------Main Section--------------->
+    <main>
+                <!--Title Section-->
+        <section class="title">
+            <div class="title-background" data-aos="fade-up" data-aos-delay="100">
+                <h3>Adventure Awaits, Go Find It</h3>
+                <h1>A hidden gem waiting to be discovered</h1>
+                <button class="btn">Explore</button>
+            </div>
+        </section>
+                <!--x--Title Section--x-->
+        
+                <!--Carousel Section--> 
+        <section>
+            <div class="blogg">
+                <div class="container">
+                    <div class="owl-carousel owl-theme blogg-post">
+                        <div class="blogg-content" data-aos="fade-right" data-aos-delay="200">
+                            <img src="P.Image/post1.jpg" alt="post 1">
+                            <div class="blogg-title">
+                                <h3>Banaras, Uttar Pradesh</h3>
+                                <h5>Also known as Varanasi or Kashi, is a city located on the left bank of the Ganges River in the state of Uttar Pradesh, India.</h5>
+                                <span>read more</span>
+                            </div>
+                        </div>
+                        <div class="blogg-content" data-aos="fade-in" data-aos-delay="200">
+                            <img src="P.Image/post2.jpg" alt="post 2">
+                            <div class="blogg-title">
+                                <h3>Kovalam Beach, Kovalam</h3>
+                                <h5> It is located in the coastal town of Kovalam in the southern state of Kerala. It is known for its three adjacent crescent-shaped beaches. </h5>
+                                <span>read more</span>
+                            </div>
+                        </div>
+                        <div class="blogg-content" data-aos="fade-left" data-aos-delay="200">
+                            <img src="P.Image/post3.jpg" alt="post 3">
+                            <div class="blogg-title">
+                                <h3>The Red Fort, New Delhi</h3>
+                                <h5>The fort is a UNESCO World Heritage Site and a symbol of India's rich history. It is known for Mughal architecture and historical significance</h5>
+                                <span>read more</span>
+                            </div>
+                        </div>
+                        <div class="blogg-content">
+                            <img src="P.Image/post4.jpg" alt="post 4" data-aos="fade-right" data-aos-delay="200">
+                            <div class="blogg-title">
+                                <h3>Amer Fort, Jaipur</h3>
+                                <h5>The fort is known for its artistic Hindu style elements and its large ramparts and series of gates and cobbled paths. </h5>
+                                <span>read more</span>
+                            </div>
+                        </div>
+                        <div class="blogg-content">
+                            <img src="P.Image/post5.jpg" alt="post 5">
+                            <div class="blogg-title">
+                                <h3>Mehrangarh Fort, Jodhpur</h3>
+                                <h5>Jodhpur, Rajasthan, is one of the largest forts in India. It is situated 410 feet above the city and is enclosed by imposing thick walls.</h5>
+                                <span>read more</span>
+                            </div>
+                        </div>
+                        <div class="blogg-content">
+                            <img src="P.Image/post6.jpg" alt="post 6">
+                            <div class="blogg-title">
+                                <h3>Manali, Himachal Pradesh</h3>
+                                <h5>Manali is a resort town nestled in the mountains. It is known for its scenic beauty, snow-capped mountains, and adventure sports.</h5>
+                                <span>read more</span>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!--x--Carousel Section--x-->
+
+                <!--Site details Section-->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+                    <div class="post-content" data-aos="fade-zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="P.Image/1st_bg.jpg" class="img" alt="1st Blog">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fa-solid fa-user text-gray"></i>&nbsp;Akansha&nbsp;&nbsp;</span>
+                                <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;July 15, 2014</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Explore the most famous place Jaipur, Rajasthan</a>
+                            <p>Jaipur known as the "Pink City," Jaipur is a vibrant and colorful city
+                               famous for its stunning palaces,forts, and temples. It is a popular destination for 
+                               history buffs and architecture enthusiasts. A place where you will find the great history of Rajasthan.
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-content" data-aos="fade-zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="P.Image/2nd_bg.jpg" class="img" alt="2nd Blog">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fa-solid fa-user text-gray"></i>&nbsp;Jayant&nbsp;&nbsp;</span>
+                                <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;January 12, 2016</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Explore the most famous Eiffel Tower, France</a>
+                            <p>One of the most iconic landmarks in the world,
+                               the Eiffel Tower is a wrought-iron lattice tower located in Paris. Symbol of Paris, stands as the tallest structure in the city.
+                               Built in 1889, it is the tallest structure in Paris and attracts millions of visitors every year.
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-content" data-aos="fade-zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="P.Image/3rd_bg.jpg" class="img" alt="3rd Blog">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fa-solid fa-user text-gray"></i>&nbsp;Aryan&nbsp;&nbsp;</span>
+                                <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;December 19, 2019</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Explore the nature's ancient city Machu Picchu, Peru </a>
+                            <p>Machu Picchu, an ancient Incan city nestled in the Andes Mountains, 
+                                is a renowned archaeological site and a UNESCO World Heritage Site. 
+                                Its breathtaking location and well-preserved ruins make it one of the most iconic and visited historical sites in the world.
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-content" data-aos="fade-zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="P.Image/4th_bg.jpg" class="img" alt="4th Blog">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fa-solid fa-user text-gray"></i>&nbsp;Andrew&nbsp;&nbsp;</span>
+                                <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;March 29, 2014</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Explore the World's most famous Statue of Liberty, United States</a>
+                            <p> The Statue of Liberty, a symbol of freedom and democracy, is an iconic landmark located in New York City.
+                                A gift from France to the United States, it has welcomed immigrants and stands as a universal symbol of liberty and democracy.
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-content" data-aos="fade-zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="P.Image/5th_bg.jpg" class="img" alt="5th Blog">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fa-solid fa-user text-gray"></i>&nbsp;John&nbsp;&nbsp;</span>
+                                <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;August 7, 2022</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Explore the most Iconic Tourist attraction Sydney Opera House, Australia</a>
+                            <p>The Sydney Opera House, a UNESCO World Heritage Site, is a multi-venue performing arts center
+                                and one of the most recognizable and celebrated buildings of the 20th century.
+                                Its unique design and stunning waterfront location make it a must-visit attraction in Australia.
+                            </p>
+                            <button class="btn post-btn">Read More &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="turnpage flex-row">
+                        <a href="#"><i class="fa-solid fa-angle-left"></i></a>
+                        <a href="#" class="page">1</a>
+                        <a href="#" class="page">2</a>
+                        <a href="#" class="page">3</a>
+                        <a href="#"><i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="category">
+                        <h2> Travel Category</h2>
+                        <ul class="category-list">
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                                <a href="#">Adventure Travel</a> 
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                                <a href="#">Cultural Travel</a> 
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                                <a href="#">Road Trips</a> 
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                                <a href="#">Royal Visits</a> 
+                            </li>
+                            <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                                <a href="#">Package Tour</a> 
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mostvisited-posts">
+                        <h2>Most Visited Posts</h2>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                            <div class="post-image">
+                                <div>
+                                    <img src="P.Image/side_img.jpg" class="img" alt="sidepost">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;May 2, 2012</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#">Explore this most beautiful place on this adventure with me, Do visit!</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="300">
+                            <div class="post-image">
+                                <div>
+                                    <img src="P.Image/side2_img.jpg" class="img" alt="sidepost">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;June 3, 2018</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#">Enjoy the Culture of this beautiful land, your experience will last forever.</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                            <div class="post-image">
+                                <div>
+                                    <img src="P.Image/side3_img.jpg" class="img" alt="sidepost">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;November 11, 2019</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#">This is how you can take Road Trips with your friends, an enjory with free Trips.</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="500">
+                            <div class="post-image">
+                                <div>
+                                    <img src="P.Image/side4_img.jpg" class="img" alt="sidepost">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;Feburary 22, 2021</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#">World's most visited Royal place, which is a insane place and extraordinary to itself.</a>
+                            </div>
+                        </div>
+                        <div class="post-content" data-aos="flip-up" data-aos-delay="600">
+                            <div class="post-image">
+                                <div>
+                                    <img src="P.Image/side5_img.jpg" class="img" alt="sidepost">
+                                </div>
+                                <div class="post-info flex-row">
+                                    <span><i class="fa-solid fa-calendar-days text-gray"></i>&nbsp;October 27, 2023</span>
+                                </div>
+                            </div>
+                            <div class="post-title">
+                                <a href="#">How I travelled over 10 cities with No Money, and how can you travel like me for Free.</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="most-searched-tags">
+                        <h2>Most Searched</h2>
+                        <div class="tag flex-row">
+                            <span class="name" data-aos="flip-up" data-aos-delay="100">Free Travel</span>
+                            <span class="name" data-aos="flip-up" data-aos-delay="200">Alone Trip</span>
+                            <span class="name" data-aos="flip-up" data-aos-delay="300">Travel with dog</span>
+                            <span class="name" data-aos="flip-up" data-aos-delay="400">Cuba Expence</span>
+                            <span class="name" data-aos="flip-up" data-aos-delay="500">Cheap Place</span>
+                            <span class="name" data-aos="flip-up" data-aos-delay="600">Ancient places outside India</span>
+                            <span class="name" data-aos="flip-up" data-aos-delay="700">Travel back in Time</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+                <!--x--Site details Section--x-->
+    </main>
+    <!-----xx------Main Section-------xx------>
+
+    <!------------Footer Section------------->
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="about" data-aos="fade-right" data-aos-delay="200">
+                <h2>About Us</h2>
+                <p>Welcome to our blog—a space where ideas come to life.
+                    We share stories, tips, and insights to inform and inspire.
+                    Whether you're here to learn, laugh, or explore,
+                    we're glad to have you with us on this journey..</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay with Us</p>
+                <div class="element">
+                    <input type="email" placeholder="Enter your email">
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="P.Image/ins1.jpg" alt="img1">
+                    <img src="P.Image/ins2.jpg" alt="img2">
+                    <img src="P.Image/ins3.jpg" alt="img3">
+                    <img src="P.Image/ins4.jpg" alt="img4">
+                    <img src="P.Image/ins5.jpg" alt="img5">
+                    <img src="P.Image/ins6.jpg" alt="img6">
+                </div>
+            </div> 
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow Us</h2>
+                <p>Connect with us socially</p>
+                <div>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </div>    
+        </div>
+        <div class="right flex-row">
+            <h4 class="text-gray">
+                Copyright @2025 All rights reserved | AGNO C BENNY
+                <a href="#" target="_black" >Love<i class="fa-solid fa-heart"></i></a>
+            </h4>
+        </div>
+    </footer>
+    <!------xx------Footer Section-------xx------>
+
+
+
+    <!--JQuery library file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--Owl-Carousel JS file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!--Linking  AOS JS file-->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!--Linking JS file-->
+    <script src="./main.js"></script>
+
+</body>
+</html>

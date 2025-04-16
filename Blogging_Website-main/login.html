@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Bloggary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .back-text {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .back-text:hover {
+            color: #333;
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus {
+            border-color: #4ecdc4;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+            outline: none;
+            background: white;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: #4ecdc4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .btn:hover {
+            background: #45b7ae;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ffffff;
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @keyframes spin {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .success-message {
+            color: #4ecdc4;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .social-login {
+            margin-top: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .social-login::before {
+            content: "or";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .social-login::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+            z-index: -1;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #4ecdc4;
+            border-color: #4ecdc4;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+        }
+
+        .toggle-form a {
+            color: #4ecdc4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toggle-form a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .form-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-text">
+            <i class="fas fa-arrow-left"></i> Back!
+        </a>
+        
+        <div class="form-header">
+            <h2>Sign In</h2>
+            <p>Welcome back! Please enter your details</p>
+        </div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+                <div class="error-message" id="name-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <div class="error-message" id="email-error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <div class="error-message" id="password-error"></div>
+            </div>
+
+            <button type="submit" class="btn" id="submit-btn">
+                Sign In
+                <div class="spinner"></div>
+            </button>
+            <div class="error-message" id="form-error"></div>
+            <div class="success-message" id="form-success"></div>
+        </form>
+
+        <div class="toggle-form">
+            Don't have an account? <a href="#" id="toggle-signup">Sign up</a>
+        </div>
+
+        <div class="social-login">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        const form = document.getElementById('login-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const spinner = submitBtn.querySelector('.spinner');
+        let isSignUp = false;
+
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function validateName(name) {
+            return name.trim().length >= 2;
+        }
+
+        function validatePassword(password) {
+            return password.length >= 6;
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+        }
+
+        function setLoading(isLoading) {
+            submitBtn.disabled = isLoading;
+            spinner.style.display = isLoading ? 'block' : 'none';
+            submitBtn.textContent = isLoading ? '' : (isSignUp ? 'Sign Up' : 'Sign In');
+        }
+
+        // Check if user is already logged in
+        const currentUser = localStorage.getItem('user');
+        if (currentUser && !window.location.pathname.includes('login.html')) {
+            window.location.href = 'index.html';
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            clearErrors();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validation
+            if (!validateName(name)) {
+                showError('name-error', 'Please enter a valid name');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showError('email-error', 'Please enter a valid email');
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                showError('password-error', 'Password must be at least 6 characters');
+                return;
+            }
+
+            setLoading(true);
+
+            try {
+                let success;
+                if (isSignUp) {
+                    success = handleSignup(email, password, name);
+                } else {
+                    success = handleLogin(email, password);
+                }
+
+                if (success) {
+                    const successMessage = document.getElementById('form-success');
+                    successMessage.textContent = isSignUp ? 'Account created successfully!' : 'Login successful!';
+                    successMessage.style.display = 'block';
+
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    showError('form-error', isSignUp ? 'Email already exists!' : 'Invalid email or password!');
+                }
+            } catch (error) {
+                showError('form-error', 'An error occurred. Please try again.');
+            } finally {
+                setLoading(false);
+            }
+        });
+
+        // Toggle between sign in and sign up
+        document.getElementById('toggle-signup').addEventListener('click', (e) => {
+            e.preventDefault();
+            const header = document.querySelector('.form-header h2');
+            const subtext = document.querySelector('.form-header p');
+            const toggleText = document.querySelector('.toggle-form');
+            const submitButton = document.getElementById('submit-btn');
+
+            isSignUp = !isSignUp;
+            
+            if (isSignUp) {
+                header.textContent = 'Sign Up';
+                subtext.textContent = 'Create an account to get started';
+                submitButton.textContent = 'Sign Up';
+                toggleText.innerHTML = 'Already have an account? <a href="#" id="toggle-signup">Sign in</a>';
+            } else {
+                header.textContent = 'Sign In';
+                subtext.textContent = 'Welcome back! Please enter your details';
+                submitButton.textContent = 'Sign In';
+                toggleText.innerHTML = 'Don\'t have an account? <a href="#" id="toggle-signup">Sign up</a>';
+            }
+
+            // Clear any existing errors
+            clearErrors();
+        });
+    </script>
+</body>
+</html> 

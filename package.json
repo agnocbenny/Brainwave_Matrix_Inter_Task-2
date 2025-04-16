@@ -1,0 +1,12 @@
+{
+  "name": "blogging-website",
+  "version": "1.0.0",
+  "description": "A blogging website with authentication and blog creation features",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+} 

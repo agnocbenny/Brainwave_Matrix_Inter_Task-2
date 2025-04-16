@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog X Sphere</title>
+    <!--JQuery cdn-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <!--AOS library-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />  
+    
+    <!--FontAwsome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        :root {
+            --text-gray: #3f4954;
+            --midnight: #104f55;
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --light-gray: #ecf0f1;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-gray);
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .nav {
+            background: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand a {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-items {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        .nav-link a:hover {
+            color: var(--accent);
+            background: var(--light-gray);
+        }
+
+        .blogs-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .blogs-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .blogs-header h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .blogs-header p {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .filter-section {
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--accent);
+            background: var(--white);
+            color: var(--accent);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .blog-excerpt {
+            color: var(--secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-items {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-menu">
+            <div class="nav-brand">
+                <a href="index.html">Blog X Sphere</a>
+            </div>
+            <ul class="nav-items">
+                <li class="nav-link">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="nav-link">
+                    <a href="create.html">Create</a>
+                </li>
+                <li class="nav-link">
+                    <a href="blogs.html">Blogs</a>
+                </li>
+                
+                <li class="nav-link">
+                    <a href="contact.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="blogs-container">
+        <div class="blogs-header" data-aos="fade-up">
+            <h1>Shared Travel Experiences</h1>
+            <p>Discover inspiring stories from fellow travelers around the world</p>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All Stories</button>
+            <button class="filter-btn" data-filter="adventure">Adventure</button>
+            <button class="filter-btn" data-filter="cultural">Cultural</button>
+            <button class="filter-btn" data-filter="roadtrip">Road Trips</button>
+            <button class="filter-btn" data-filter="royal">Royal</button>
+        </div>
+
+        <div class="blogs-grid" id="blogsGrid">
+            <!-- Blogs will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: true
+        });
+
+        // Load and display blogs
+        function loadBlogs() {
+            const blogs = JSON.parse(localStorage.getItem('blogs') || '[]');
+            const blogsGrid = document.getElementById('blogsGrid');
+            
+            blogsGrid.innerHTML = blogs.map(blog => `
+                <div class="blog-card" data-aos="fade-up" data-category="${blog.category || 'all'}">
+                    <div class="blog-category">${blog.category || 'General'}</div>
+                    <img src="${blog.image}" alt="${blog.title}" class="blog-image">
+                    <div class="blog-content">
+                        <h3 class="blog-title">${blog.title}</h3>
+                        <div class="blog-meta">
+                            <div class="blog-author">
+                                <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(blog.author)}&background=random" alt="Author" class="author-avatar">
+                                <span>${blog.author}</span>
+                            </div>
+                            <span>${blog.date}</span>
+                        </div>
+                        <p class="blog-excerpt">${blog.experience.substring(0, 200)}...</p>
+                        <a href="#" class="read-more">
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter blogs
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+                const blogs = document.querySelectorAll('.blog-card');
+
+                blogs.forEach(blog => {
+                    if (filter === 'all' || blog.dataset.category === filter) {
+                        blog.style.display = 'block';
+                        setTimeout(() => {
+                            blog.style.opacity = '1';
+                            blog.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        blog.style.opacity = '0';
+                        blog.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            blog.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Load blogs on page load
+        document.addEventListener('DOMContentLoaded', loadBlogs);
+    </script>
+</body>
+</html> 
